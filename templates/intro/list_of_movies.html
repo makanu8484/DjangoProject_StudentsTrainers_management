@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} List of movies {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="card-header" style="background: cornflowerblue">
+            <h1 class="text-center">List of movies</h1>
+        </div>
+        <table class="table table-primary table-bordered border-primary
+        table-striped-columns table-group-divider">
+            <thead>
+            <tr class="table-danger table-bordered border-primary">
+                <th>Name of movie</th>
+                <th>Type</th>
+                <th>Year</th>
+                <th>Director</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for movie in all_movies %}
+                <tr>
+                    <th>{{ movie.name }}</th>
+                    <th>{{ movie.type }}</th>
+                    <th>{{ movie.year }}</th>
+                    <th>{{ movie.director }}</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="{% url 'list_cars' %}"> Go to lis of cars</a>
+    </div>
+{% endblock %}

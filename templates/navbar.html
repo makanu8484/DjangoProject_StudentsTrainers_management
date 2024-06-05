@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid" style="background: darkkhaki">
+        <a class="navbar-brand" href="#" style="color: deeppink">Django Project</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color: green">Home</a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: orangered">
+                        Intro
+                    </a>
+                    <ul class="dropdown-menu" style="background: lightskyblue">
+                        <li><a class="dropdown-item" href="{% url 'list_cars' %}" style="color: orangered">List of cars</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list_movies' %}" style="color: orangered">List of movies</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: blue">
+                        Student
+                    </a>
+                    <ul class="dropdown-menu" style="background: lightskyblue">
+                        <li><a class="dropdown-item" href="{% url 'create_student' %}">Create a new student</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list_students' %}">List of students</a></li>
+                    </ul>
+                </li>
+          
+
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: greenyellow">
+                        Trainer
+                    </a>
+                    <ul class="dropdown-menu" style="background: lightskyblue">
+                        <li><a class="dropdown-item" href="{% url 'create_trainer' %}">Create a new trainer</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list_trainers' %}">List of trainers</a></li>
+                    </ul>
+                </li>
+                
+                
+                <li class="nav-item dropdown" >
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false" style="color: orchid">
+                        Feedback
+                    </a>
+                    <ul class="dropdown-menu" style="background: lightskyblue">
+                        <li><a class="dropdown-item" href="{% url 'create_feedback' %}">Create a new feedback</a></li>
+                        <li><a class="dropdown-item" href="{% url 'feedback_list' %}">List of feedbacks</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>

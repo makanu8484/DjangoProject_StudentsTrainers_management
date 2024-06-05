@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <br/> <br/> <br/> <br/> <br/> <br/>
+    <div class="container-fluid">
+        <h1 class="text-center" style="color: green">Welcome to Django Project</h1>
+        <br/>
+        <div class="text-center">
+            <img src="{% static 'images/images.png' %}">
+        </div>
+    </div>
+{% endblock %}

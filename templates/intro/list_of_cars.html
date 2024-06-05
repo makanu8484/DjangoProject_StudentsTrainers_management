@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} List of cars {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="card-header" style="background: cornflowerblue">
+            <h1 class="text-center">List of cars</h1>
+        </div>
+        <table class="table table-success table-striped-columns 
+        table table-bordered border-success table-group-divider ">
+            <thead>
+            <tr class="table-primary table-bordered border-primary">
+                <th>Name of brand</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Year</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for car in all_cars %}
+                <tr>
+                    <td>{{ car.name }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.color }}</td>
+                    <td>{{ car.year }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-primary" href="{% url 'list_movies' %}"> Go to lis of movies</a>
+    
+    </div>
+{% endblock %}
