@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Create a new feedback {% endblock %}
+
+{% block content%}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 gy-5">
+                <div class="card">
+                    <div class="card-header" style="background: orchid">
+                        <h2 class="text-center">Create a new feedback</h2>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body" style="background: indianred">
+                            {{ form }}
+                        <div class="card-footer text-center" style="background: orchid">
+                            <button type="submit" class="btn btn-outline-success">Save</button>
+                            <a href="{% url 'home' %}" class="btn btn-outline-danger">Cancel</a>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

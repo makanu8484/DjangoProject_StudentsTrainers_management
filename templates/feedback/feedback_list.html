@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Feedback list {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card-header" style="background: lightskyblue">
+                    <h1 class="text-center">List of feedback</h1>
+           <br/>
+                
+                    <table class="table table-warning table-striped-columns
+        table table-bordered border-success table-group-divider ">
+                        <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Active</th>
+                            <th>Create at</th>
+                            <th>Update at</th>
+                            <th>Name of trainer</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="table table-danger table-striped-columns
+        table table-bordered border-success table-group-divider">
+                        {% for feedback in all_feedback %}
+                            <tr>
+                                <td>{{ feedback.first_name }}</td>
+                                <td>{{ feedback.last_name }}</td>
+                                <td>{{ feedback.email }}</td>
+                                <td>{{ feedback.message }}</td>
+                                <td>
+                                    {% if feedback.active %}
+                                        Yes
+                                    {% else %}
+                                        No
+                                    {% endif %}
+                                </td>
+                                <td>{{ feedback.created_at|date:'d-m-Y H:i:s' }}</td>
+                                <td>{{ feedback.updated_at|date:'d-m-Y H:i:s' }}</td>
+                                <td>{{ feedback.trainer }}</td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
