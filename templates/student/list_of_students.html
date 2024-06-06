@@ -7,114 +7,116 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 gy-2">
-            <div class="card-header" style="background: skyblue">
-                <h1 class="text-center">List of students</h1>
+                <div class="card-header" style="background: skyblue">
+                    <h1 class="text-center">List of students</h1>
 
 
-                {% if all_students %}
+                    {% if all_students %}
 
-                    <table class="table table-success table-striped-columns
+                        <table class="table table-success table-striped-columns
         table table-bordered border-success table-group-divider ">
 
-                        <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Age</th>
-                            <th>Email</th>
-                            <th>Description</th>
-                            <th>Active</th>
-                            <th>Start date</th>
-                            <th>End date</th>
-                            <th>Gender</th>
-                            <th>Create at</th>
-                            <th>Name of trainer</th>
-                            <th>Name of course</th>
-                            <th>Nme of departament</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        {% for student in all_students %}
+                            <thead>
                             <tr>
-                                <td>{{ student.first_name }}</td>
-                                <td>{{ student.last_name }}</td>
-                                <td>{{ student.age }}</td>
-                                <td>{{ student.email }}</td>
-                                <td>{{ student.description }}</td>
-                                <td>
-                                    {% if student.active %}
-                                        Yes
-                                    {% else %}
-                                        No
-                                    {% endif %}
-                                </td>
-                                <td>{{ student.start_date|date:'d-m-Y' }}</td>
-                                <td>{{ student.end_date|date:'d-m-Y' }}</td>
-                                <td>
-                                    {% if student.gender == 'M' %}
-                                        Male
-                                    {% else %}
-                                        Female
-                                    {% endif %}
-                                </td>
-
-                                <td>{{ student.created_at|date:'d-m-Y H:i:s' }}</td>
-                                <td>
-                                    {% if student.trainer %}
-                                        {{ student.trainer }}
-                                    {% else %}
-                                        No trainer
-                                    {% endif %}
-                                </td>
-
-                                <td>
-                                    {% if student.trainer.course %}
-                                        {{ student.trainer.course }}
-                                    {% else %}
-                                        No course
-                                    {% endif %}
-                                </td>
-
-                                <td>
-                                    {% if student.trainer.departament %}
-                                        {{ student.trainer.departament }}
-                                    {% else %}
-                                        No departament
-                                    {% endif %}
-                                </td>
-
-
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-danger dropdown-toggle" type="button"
-                                                data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                            More actions
-                                        </button>
-                                        <ul class="dropdown-menu" style="background: sandybrown">
-                                            <li><a class="dropdown-item" href="{% url 'update_student' student.id %}">Update</a></li>
-                                            <li><a class="dropdown-item" href="{% url 'delete_student' student.id %}">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">View details</a></li>
-                                        </ul>
-                                    </div>
-
-                                </td>
-
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Description</th>
+                                <th>Active</th>
+                                <th>Start date</th>
+                                <th>End date</th>
+                                <th>Gender</th>
+                                <th>Create at</th>
+                                <th>Name of trainer</th>
+                                <th>Name of course</th>
+                                <th>Nme of departament</th>
+                                <th>Actions</th>
                             </tr>
-                        {% endfor %}
+                            </thead>
 
-                        </tbody>
-                    </table>
+                            <tbody>
+                            {% for student in all_students %}
+                                <tr>
+                                    <td>{{ student.first_name }}</td>
+                                    <td>{{ student.last_name }}</td>
+                                    <td>{{ student.age }}</td>
+                                    <td>{{ student.email }}</td>
+                                    <td>{{ student.description }}</td>
+                                    <td>
+                                        {% if student.active %}
+                                            Yes
+                                        {% else %}
+                                            No
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ student.start_date|date:'d-m-Y' }}</td>
+                                    <td>{{ student.end_date|date:'d-m-Y' }}</td>
+                                    <td>
+                                        {% if student.gender == 'M' %}
+                                            Male
+                                        {% else %}
+                                            Female
+                                        {% endif %}
+                                    </td>
 
-                {% else %}
-                    <h2 class="text-center">No data available</h2>
-                {% endif %}
+                                    <td>{{ student.created_at|date:'d-m-Y H:i:s' }}</td>
+                                    <td>
+                                        {% if student.trainer %}
+                                            {{ student.trainer }}
+                                        {% else %}
+                                            No trainer
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if student.trainer.course %}
+                                            {{ student.trainer.course }}
+                                        {% else %}
+                                            No course
+                                        {% endif %}
+                                    </td>
+
+                                    <td>
+                                        {% if student.trainer.departament %}
+                                            {{ student.trainer.departament }}
+                                        {% else %}
+                                            No departament
+                                        {% endif %}
+                                    </td>
 
 
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-danger dropdown-toggle" type="button"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                More actions
+                                            </button>
+                                            <ul class="dropdown-menu" style="background: sandybrown">
+                                                <li><a class="dropdown-item"
+                                                       href="{% url 'update_student' student.id %}">Update</a></li>
+                                                <li><a class="dropdown-item"
+                                                       href="{% url 'delete_student' student.id %}">Delete</a></li>
+                                                <li><a class="dropdown-item" href="{% url 'details_student' student.id %}">View details</a></li>
+                                            </ul>
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+
+                    {% else %}
+                        <h2 class="text-center">No data available</h2>
+                    {% endif %}
+
+
+                </div>
             </div>
         </div>
     </div>
-
 {% endblock %}

@@ -43,6 +43,7 @@ class StudentUpdateView(UpdateView):
 class StudentDeleteView(DeleteView):
     template_name = 'student/delete_student.html'
     model = Student
+    success_url = reverse_lazy('list_students')
 
 # DetailView -> este o clasa dezvoltate de Django care este utilizata pentru afisarea informatiilor despre obiectul
 # respectiv(inregistrarea stocata in db);
