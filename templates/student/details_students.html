@@ -13,12 +13,16 @@
                 <div class="card-body" style="background:burlywood">
                     <h5 class="card-title">Name: {{ student.first_name }} {{ student.last_name }}</h5>
                     <p class="card-text">Gender: {{ student.gender }}; Age: {{ student.age }}</p>
+                    <p class="card-text">Active: {{ student.active }}</p>
                     <p class="card-text">Email: {{ student.email }}; Description: {{ student.description }}</p>
                     
-                    <a href="{% url 'list_students' %}" class="btn btn-warning">List of students</a>
+                    <a href="{% url 'list_students' %}" class="btn btn-warning">Go back</a>
                 </div>
                 <div class="card-footer text-body-secondary" style="background: #006b1b">
-                    <p class="text-center" style="color: yellow">Create at: {{ student.created_at }} Update at: {{ student.updated_at }}</p>
+                    <p class="text-center" style="color: yellow">
+                        Create at: {{ student.created_at|date:'d-m-Y H:i:s' }} - 
+                        Update at: {{ student.updated_at|date:'d-m-Y H:i:s' }}
+                    </p>
                 </div>
             </div>
 

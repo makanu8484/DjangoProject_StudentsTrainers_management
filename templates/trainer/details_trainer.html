@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Details trainer {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <br/>
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-success" style="color: darkred">Name: {{ trainer }}</div>
+                <div class="card-body text-success">
+                    <h5 class="card-title text-center">Departament: {{ trainer.departament }}</h5>
+                    <p class="card-text text-center">
+                        Course: {{ trainer.course }}
+                        Email: {{ trainer.email }} <br/>
+                        Active: {{ trainer.active }}
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent border-success" style="color: red">
+                    Create at: {{ trainer.created_at|date:'d-m-Y H:i:s' }}  
+                    Update at : {{ trainer.updated_at|date:'d-m-Y H:i:s' }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from trainer.forms import TrainerForm, TrainerUpdateForm
 from trainer.models import Trainer
@@ -25,3 +25,14 @@ class TrainerUpdateView(UpdateView):
     model = Trainer
     form_class = TrainerUpdateForm
     success_url = reverse_lazy('list_trainers')
+
+
+class TrainerDeleteView(DeleteView):
+    template_name = 'trainer/delete_trainer.html'
+    model = Trainer
+    success_url = reverse_lazy('list_trainers')
+
+
+class TrainerDetailView(DetailView):
+    template_name = 'trainer/details_trainer.html'
+    model = Trainer

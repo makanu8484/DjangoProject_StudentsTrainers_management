@@ -30,10 +30,10 @@
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                             More Actions
                                         </button>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu" style="background: red">
                                             <li><a class="dropdown-item" href="{% url 'update_trainer' trainer.id %}">Update</a></li>
-                                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                                            <li><a class="dropdown-item" href="#">View details</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'delete_trainer' trainer.id %}">Delete</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'details_trainer' trainer.id %}">View details</a></li>
                                         </ul>
                                     </div>
                                 </div>
