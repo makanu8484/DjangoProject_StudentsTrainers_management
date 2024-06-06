@@ -77,3 +77,25 @@ class StudentForm(forms.ModelForm):
             self.add_error('description', msg)
 
         return cleaned_data
+
+
+class StudentUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = '__all__'           # formularul va avea toate fieldurile din model daca scriu '__all__';
+
+
+
+        widgets = {
+            
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last name'}),
+            'age': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Age'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descriptions', 'rows': 3}),
+            'start_date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'Start date', 'type': 'date'}),
+            'end_date': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'End date', 'type': 'date'}),
+            'gender': forms.Select(attrs={'class': 'form-control'}),
+            'trainer': forms.Select(attrs={'class': 'form-control'}),
+
+        }

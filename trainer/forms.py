@@ -39,3 +39,18 @@ class TrainerForm(forms.ModelForm):
 
 
         return cleaned_data
+
+
+class TrainerUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Trainer
+        fields = '__all__'
+
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
+            'course': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Course'}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'departament': forms.Select(attrs={'class': 'form-control'}),
+
+        }

@@ -6,7 +6,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 gy-2"></div>
+            <div class="col-md-12 gy-2">
             <div class="card-header" style="background: skyblue">
                 <h1 class="text-center">List of students</h1>
 
@@ -31,6 +31,7 @@
                             <th>Name of trainer</th>
                             <th>Name of course</th>
                             <th>Nme of departament</th>
+                            <th>Actions</th>
                         </tr>
                         </thead>
 
@@ -84,14 +85,33 @@
                                     {% endif %}
                                 </td>
 
+
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-danger dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                            More actions
+                                        </button>
+                                        <ul class="dropdown-menu" style="background: sandybrown">
+                                            <li><a class="dropdown-item" href="{% url 'update_student' student.id %}">Update</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'delete_student' student.id %}">Delete</a></li>
+                                            <li><a class="dropdown-item" href="#">View details</a></li>
+                                        </ul>
+                                    </div>
+
+                                </td>
+
                             </tr>
                         {% endfor %}
+
                         </tbody>
                     </table>
 
                 {% else %}
                     <h2 class="text-center">No data available</h2>
                 {% endif %}
+
 
             </div>
         </div>

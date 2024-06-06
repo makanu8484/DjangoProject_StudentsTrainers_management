@@ -2,9 +2,9 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
-from student.forms import StudentForm
+from student.forms import StudentForm, StudentUpdateForm
 from student.models import Student
 
 
@@ -30,3 +30,23 @@ class StudentListView(ListView):
     def get_queryset(self):
         return Student.objects.filter(active=1)
         #return Student.objects.all()             # dorim sa afisam toata lista fara filter;
+
+
+# Este o clasa dezvoltata de django care simplifica procesul de actualizare a datelor dintr o baza de date pe baza unui formular;
+class StudentUpdateView(UpdateView):
+    template_name = 'student/update_student.html'
+    model = Student
+    form_class = StudentUpdateForm
+    success_url = reverse_lazy('list_students')
+
+# DeleteView -> este o clasa dezvoltata de Django care este utilizata pentru stergerea unui obiect( a unei inregistrari);
+class StudentDeleteView(DeleteView):
+    template_name = 'student/delete_student.html'
+    model = Student
+
+# DetailView -> este o clasa dezvoltate de Django care este utilizata pentru afisarea informatiilor despre obiectul
+# respectiv(inregistrarea stocata in db);
+class StudentDetailView(DetailView):
+    template_name = 'student/details_students.html'
+    model = Student
+

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Delete student
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Delete student</h2>
+                </div>
+                <div class="card-body">
+                    <h4 class="text-center" style="color: red">Sunteti sigur ca doriti sa stergeti studentul 
+                        {{ student.first_name }} {{ student.last_name }} ?</h4>
+                </div>
+                <div class="card-footer text-center" >
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    <a href="{% url 'list_students' %}" class="btn btn-outline-success">Cancel</a>
+                    
+                </div>
+            </div>
+                 
+        </div>
+    </div>
+{% endblock %}

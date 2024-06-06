@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Update student {% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 gy-5">
+                <div class="card">
+                    <div class="card-header" style="background: #264b5d">
+                        <h2 class="text-center" style="color: yellow">Update Student</h2>
+                    </div>
+                    <form method="post" style="background: #4ac1f7">
+                        {% csrf_token %} 
+                        <div class="card-body">
+                            {{ form }}
+                        </div>
+                        <div class="card-footer text-center" style="background: #264b5d">
+                            <button type="submit" class="btn btn-outline-danger">Update</button>
+                            <a href="{% url 'list_students' %}" class="btn btn-outline-success">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

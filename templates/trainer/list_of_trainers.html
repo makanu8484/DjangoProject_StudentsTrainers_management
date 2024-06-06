@@ -11,7 +11,7 @@
                      <h1>List of trainers</h1>
                  </span>
                 </div>
-            
+
                 {% if all_trainers %}
 
 
@@ -21,16 +21,27 @@
                                 <div class="card-body" style="background:yellow">
                                     <h5 class="card-title"> Name: {{ trainer }}</h5>
                                     <h6 class="card-subtitle mb-6 text-body-secondary">Course: {{ trainer.course }}</h6>
-                                    <p class="card-text">Departament: {{ trainer.department }}</p>
+                                    <p class="card-text">Departament: {{ trainer.departament }}</p>
                                     <p class="card-text">Email: {{ trainer.email }}</p>
+                                    <p class="card-text">Active: {{ trainer.active }}</p>
 
-                                    <button type="submit" href="" class="btn btn-success">View</button>
+                                    <div class="dropdown">
+                                        <button class="btn btn-danger dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            More Actions
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url 'update_trainer' trainer.id %}">Update</a></li>
+                                            <li><a class="dropdown-item" href="#">Delete</a></li>
+                                            <li><a class="dropdown-item" href="#">View details</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
-                    
-                    
+
+
                 {% else %}
                     <h2 class="text-center">No data available</h2>
                 {% endif %}
