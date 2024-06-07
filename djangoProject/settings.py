@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "student",
     "trainer",
     "feedback",
+    "userextend",
 
 
 
@@ -134,6 +135,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 
-LOGIN_URL = "/"                                # prefixul url-ul pentru logare;
+LOGIN_URL = "/login/"                                # prefixul url-ul pentru logare;
 LOGIN_REDIRECT_URL = "/"                      # unde va fi redirectionat utilizatorul dupa autentificare;
 LOGOUT_REDIRECT_URL = "/login/"               # unde va fi redirectionat utilizatorul dupa delogare;

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Create a new user {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 gy-5">
+                <div class="card">
+                    <div class="card-header" style="background: #3875d7">
+                        <h1 class="text-center"style="color: orangered">Create a new User</h1>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body" style="background: aquamarine">
+                            {{ form }}
+                        </div>
+                        <div class="card-footer text-center" style="background: lightgreen">
+                            <button type="submit" class="btn btn-outline-primary">Save</button>
+                            <a href="{% url 'login' %}" class="btn btn-outline-success">Cancel</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

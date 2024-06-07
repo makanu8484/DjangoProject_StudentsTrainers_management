@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from trainer.models import Trainer

@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.contrib.auth import views
 from django.urls import path, include
 
-#from userextend.forms import AuthenticationNewForm
+from userextend.forms import AuthenticationNewForm
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,7 +29,7 @@ urlpatterns = [
     path("", include("trainer.urls")),
     path("", include("feedback.urls")),
 
-    #path("login/", views.LoginView.as_view(form_class=AuthenticationNewForm), name="login"),
+    path("login/", views.LoginView.as_view(form_class=AuthenticationNewForm), name="login"),
     path("", include("django.contrib.auth.urls")),
-    # path("", include("userextend.urls")),
+    path("", include("userextend.urls")),
 ]
