@@ -6,8 +6,10 @@
     <div class="container-fluid">
         <div class="col-md-6">
             <br/>
-            <div class="card border-success mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent border-success" style="color: darkred">Name: {{ trainer }}</div>
+            <div class="card border-success mb-3" style="max-width: 25rem;">
+                <div class="card-header bg-transparent border-success st">
+                    <h3>Name: {{ trainer }}</h3>
+                </div>
                 <div class="card-body text-success">
                     <h5 class="card-title text-center">Departament: {{ trainer.departament }}</h5>
                     <p class="card-text text-center">
@@ -16,9 +18,10 @@
                         Active: {{ trainer.active }}
                     </p>
                 </div>
-                <div class="card-footer bg-transparent border-success" style="color: red">
-                    Create at: {{ trainer.created_at|date:'d-m-Y H:i:s' }}  
-                    Update at : {{ trainer.updated_at|date:'d-m-Y H:i:s' }}
+                <div class="card-footer bg-transparent border-success text-center" style="color: red">
+                    Create at: {{ trainer.created_at|date:'d-m-Y H:i:s' }}<br/>
+                    Update at : {{ trainer.updated_at|date:'d-m-Y H:i:s' }}<br/>
+                    <button type="submit" class="btn btn-outline-warning">Go back</button>
                 </div>
             </div>
 

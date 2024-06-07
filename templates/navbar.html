@@ -20,8 +20,10 @@
                         Intro
                     </a>
                     <ul class="dropdown-menu" style="background: lightskyblue">
-                        <li><a class="dropdown-item" href="{% url 'list_cars' %}" style="color: orangered">List of cars</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list_movies' %}" style="color: orangered">List of movies</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list_cars' %}" style="color: orangered">List of
+                            cars</a></li>
+                        <li><a class="dropdown-item" href="{% url 'list_movies' %}" style="color: orangered">List of
+                            movies</a></li>
                     </ul>
                 </li>
 
@@ -36,9 +38,9 @@
                         <li><a class="dropdown-item" href="{% url 'list_students' %}">List of students</a></li>
                     </ul>
                 </li>
-          
 
-                <li class="nav-item dropdown" >
+
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false" style="color: greenyellow">
                         Trainer
@@ -48,9 +50,9 @@
                         <li><a class="dropdown-item" href="{% url 'list_trainers' %}">List of trainers</a></li>
                     </ul>
                 </li>
-                
-                
-                <li class="nav-item dropdown" >
+
+
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false" style="color: orchid">
                         Feedback
@@ -60,8 +62,28 @@
                         <li><a class="dropdown-item" href="{% url 'feedback_list' %}">List of feedbacks</a></li>
                     </ul>
                 </li>
-
             </ul>
+
+
+
+            {% if user.is_authenticated %}
+
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-primary">Logout, {{ user.username }}</button>
+                </form>
+
+            {% else %}
+
+                <div>
+                    <a href="{% url 'login' %}" class="btn btn-outline-danger">Login</a>
+                    <a href="" class="btn btn-outline-success">Signup</a>
+                </div>
+
+            {% endif %}
+
+
+
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
