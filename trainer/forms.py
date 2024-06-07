@@ -1,9 +1,11 @@
 from django import forms
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from trainer.models import Trainer
 
 
-class TrainerForm(forms.ModelForm):
+class TrainerForm(LoginRequiredMixin, forms.ModelForm):
     class Meta:
         model = Trainer
         fields = '__all__'
@@ -41,7 +43,7 @@ class TrainerForm(forms.ModelForm):
         return cleaned_data
 
 
-class TrainerUpdateForm(forms.ModelForm):
+class TrainerUpdateForm(LoginRequiredMixin, forms.ModelForm):
     class Meta:
         model = Trainer
         fields = '__all__'

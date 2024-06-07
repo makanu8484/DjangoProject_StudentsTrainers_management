@@ -1,9 +1,11 @@
 from django import forms
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from student.models import Student
 
 
-class StudentForm(forms.ModelForm):
+class StudentForm(LoginRequiredMixin, forms.ModelForm):
     class Meta:
         model = Student
         fields = '__all__'           # formularul va avea toate fieldurile din model daca scriu '__all__';
@@ -79,7 +81,7 @@ class StudentForm(forms.ModelForm):
         return cleaned_data
 
 
-class StudentUpdateForm(forms.ModelForm):
+class StudentUpdateForm(LoginRequiredMixin, forms.ModelForm):
     class Meta:
         model = Student
         fields = '__all__'           # formularul va avea toate fieldurile din model daca scriu '__all__';

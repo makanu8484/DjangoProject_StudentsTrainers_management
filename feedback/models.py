@@ -1,10 +1,12 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import models
 from django.db import models
 
 from trainer.models import Trainer
 
 
-class Feedback(models.Model):
+class Feedback(LoginRequiredMixin, models.Model):
 
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)

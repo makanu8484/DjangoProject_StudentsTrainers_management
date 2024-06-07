@@ -1,9 +1,11 @@
 from django import forms
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from feedback.models import Feedback
 
 
-class FeedbackForm(forms.ModelForm):
+class FeedbackForm(LoginRequiredMixin, forms.ModelForm):
     class Meta:
         model = Feedback
         fields = '__all__'
@@ -18,6 +20,8 @@ class FeedbackForm(forms.ModelForm):
             'trainer': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Trainer'}),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     def clean(self):
         cleaned_data = super().clean()

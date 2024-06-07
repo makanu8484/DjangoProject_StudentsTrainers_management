@@ -13,55 +13,60 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="color: green">Home</a>
                 </li>
 
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false" style="color: orangered">
-                        Intro
-                    </a>
-                    <ul class="dropdown-menu" style="background: lightskyblue">
-                        <li><a class="dropdown-item" href="{% url 'list_cars' %}" style="color: orangered">List of
-                            cars</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list_movies' %}" style="color: orangered">List of
-                            movies</a></li>
-                    </ul>
-                </li>
+                {% if user.is_authenticated %}
 
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false" style="color: blue">
-                        Student
-                    </a>
-                    <ul class="dropdown-menu" style="background: lightskyblue">
-                        <li><a class="dropdown-item" href="{% url 'create_student' %}">Create a new student</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list_students' %}">List of students</a></li>
-                    </ul>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" style="color: orangered">
+                            Intro
+                        </a>
+                        <ul class="dropdown-menu" style="background: lightskyblue">
+                            <li><a class="dropdown-item" href="{% url 'list_cars' %}" style="color: orangered">List of
+                                cars</a></li>
+                            <li><a class="dropdown-item" href="{% url 'list_movies' %}" style="color: orangered">List of
+                                movies</a></li>
+                        </ul>
+                    </li>
 
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false" style="color: greenyellow">
-                        Trainer
-                    </a>
-                    <ul class="dropdown-menu" style="background: lightskyblue">
-                        <li><a class="dropdown-item" href="{% url 'create_trainer' %}">Create a new trainer</a></li>
-                        <li><a class="dropdown-item" href="{% url 'list_trainers' %}">List of trainers</a></li>
-                    </ul>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" style="color: blue">
+                            Student
+                        </a>
+                        <ul class="dropdown-menu" style="background: lightskyblue">
+                            <li><a class="dropdown-item" href="{% url 'create_student' %}">Create a new student</a></li>
+                            <li><a class="dropdown-item" href="{% url 'list_students' %}">List of students</a></li>
+                        </ul>
+                    </li>
 
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false" style="color: orchid">
-                        Feedback
-                    </a>
-                    <ul class="dropdown-menu" style="background: lightskyblue">
-                        <li><a class="dropdown-item" href="{% url 'create_feedback' %}">Create a new feedback</a></li>
-                        <li><a class="dropdown-item" href="{% url 'feedback_list' %}">List of feedbacks</a></li>
-                    </ul>
-                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" style="color: greenyellow">
+                            Trainer
+                        </a>
+                        <ul class="dropdown-menu" style="background: lightskyblue">
+                            <li><a class="dropdown-item" href="{% url 'create_trainer' %}">Create a new trainer</a></li>
+                            <li><a class="dropdown-item" href="{% url 'list_trainers' %}">List of trainers</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false" style="color: orchid">
+                            Feedback
+                        </a>
+                        <ul class="dropdown-menu" style="background: lightskyblue">
+                            <li><a class="dropdown-item" href="{% url 'create_feedback' %}">Create a new feedback</a>
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'feedback_list' %}">List of feedbacks</a></li>
+                        </ul>
+                    </li>
+
+                {% endif %}
             </ul>
 
 

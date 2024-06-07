@@ -5,22 +5,23 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="card">
-                <div class="card-header" style="background: #ffffcc">
-                    <h3 class="text-center" style="color: #006b1b">Login</h3>
-                    
-                    	
-                      
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="card-body text-center">
-                            {{ form }}
-                        </div>
-                        <div class="card-footer text-center" style="background: rosybrown">
-                            <button type="submit" class="btn btn-outline-danger">Login</button>
-                            <a href="#" class="btn btn-outline-success">Forgot your password?</a>
-                        </div>
-                    </form>
+            <div class="col-md-6 offset-md-3 gy-5">
+                <div class="card">
+                    <div class="card-header" style="background: #ffffcc">
+                        <h3 class="text-center" style="color: #006b1b">Login</h3>
+
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="card-body text-center">
+                                {{ form }}
+                            </div>
+                            <div class="card-footer text-center" style="background: lightskyblue">
+                                <button type="submit" class="btn btn-outline-danger">Login</button>
+                                <a href="#" class="btn btn-outline-success">Forgot your password?</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

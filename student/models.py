@@ -1,10 +1,12 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import models
 
 
 from trainer.models import Trainer
 
 
-class Student(models.Model):
+class Student(LoginRequiredMixin, models.Model):
 
     gender_options = [
         ('M', 'Male'),

@@ -1,16 +1,18 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 
 
 
 
-
+@login_required()
 def hello(request):
     return HttpResponse("Hello World!")
 
-
+@login_required()
 def show_my_name(request):
     return HttpResponse("Hello, Iulian!")
+@login_required()
 def cars(request):
     context = {
         'all_cars':
@@ -36,6 +38,7 @@ def cars(request):
         ]
     }
     return render(request, template_name='intro/list_of_cars.html', context=context)
+@login_required()
 def movies(request):
     context = {
         'all_movies':
